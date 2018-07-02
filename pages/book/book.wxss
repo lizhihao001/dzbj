@@ -1,0 +1,309 @@
+/* pages/book/book.wxss */
+
+page {
+  background: #f7f7f7;
+  padding-bottom: 227rpx;
+}
+
+view {
+  box-sizing: border-box;
+}
+
+.topbox {
+  height: 100rpx;
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.topbox .icon-user {
+  width: 100rpx;
+  height: 100rpx;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  float: left;
+  position: relative;
+}
+
+.topbox .icon-user::after {
+  position: absolute;
+  right: 0;
+  width: 1px;
+  height: 30rpx;
+  top: 35rpx;
+  content: "";
+  background: #dbdbdb;
+}
+
+.topbox .icon-user image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 auto;
+}
+
+.topbox .navlist {
+  height: 100rpx;
+  margin-left: 100rpx;
+}
+
+.topbox .navlist .scroll-wrap {
+  height: 100rpx;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.topbox .navlist .scroll-wrap .item {
+  text-align: center;
+  width: 25%;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+  display: inline-block;
+}
+
+.topbox .navlist .item.on::after {
+  position: absolute;
+  left: 30rpx;
+  right: 30rpx;
+  height: 3px;
+  background: #e6454a;
+  content: "";
+  bottom: 0;
+}
+
+.car-box {
+  white-space: nowrap;
+  padding: 40rpx 0 20rpx 0;
+  border-bottom: 20rpx solid #f7f7f7;
+  background: #fff;
+}
+
+.swipe-item {
+  display: block;
+  text-align: center;
+}
+
+.swipe-item image {
+  width: 346rpx;
+  height: 183rpx;
+  margin: 0 auto;
+}
+
+.swipe-item .box-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.swipe-item .box-info .item {
+  width: 33.3333%;
+  height: 80rpx;
+}
+
+.swipe-item .box-info .item text {
+  display: block;
+}
+
+.swipe-item .box-info .item .t1 {
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.swipe-item .box-info .item .t2 {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.book-box {
+  background: #fff;
+}
+
+.book-box .row {
+  display: flex;
+  height: 120rpx;
+  align-items: center;
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  position: relative;
+}
+
+.book-box .row text {
+  height: 32rpx;
+  line-height: 32rpx;
+}
+
+.book-box .row .icon-clock {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 30rpx;
+}
+
+.book-box .row .tip-book-date {
+  margin-right: 30rpx;
+}
+
+.book-box .row .txt-book-date {
+  color: #e6454a;
+}
+
+.book-box .row .icon-right {
+  float: right;
+  position: absolute;
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.book-box .row .icon-add {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 30rpx;
+}
+
+.book-box .row .btn-add {
+  margin-left: 0;
+  background-color: #fff;
+  padding-left: 0;
+  text-align: left;
+  width: 600rpx;
+}
+
+.book-box .row .numbox {
+  position: absolute;
+  width: 180rpx;
+  right: 30rpx;
+  height: 40rpx;
+  display: flex;
+}
+
+.book-box .row .numbox .btn-handle-qty {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50px;
+  border: 1px solid #ededed;
+  text-align: center;
+  line-height: 40rpx;
+  color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.book-box .row .numbox .icon-handle-qty {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+
+.book-box .row .numbox .qty {
+  width: 80rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #999;
+}
+
+.footer {
+  position: fixed;
+  background: #fff;
+  height: 207rpx;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  z-index: 999;
+}
+
+.footer .priceinfo {
+  margin-bottom: 10rpx;
+  position: relative;
+}
+.footer .priceinfo .icon-right{
+  float: right;
+  position: absolute;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  top:24rpx;
+}
+.footer .priceinfo .tip-price {
+  font-size: 60rpx;
+  color: #e6454a;
+  padding-left: 20rpx;
+}
+
+.footer .priceinfo .tip-txt {
+  color: #e6454a;
+  padding: 0;
+}
+
+.footer .priceinfo .tip-intro {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 50rpx;
+  float:right;
+  margin-top: 26rpx;
+}
+
+.footer .btn-submit {
+  width: 100%;
+  background-color: #e6454a;
+  color: #fff;
+}
+
+.picker {
+  position: fixed;
+  width: 100%;
+  height: 400rpx;
+  padding: 0;
+  left: 0;
+  z-index: 9999;
+  bottom: -400rpx;
+  background: #fff;
+  transition:bottom 300ms;
+}
+.picker.show{
+  bottom: 0;
+}
+.picker.hide{
+  bottom: -400rpx;
+}
+.picker-view {
+  width: 100%;
+  height: 400rpx;
+  text-align: center;
+  position: relative;
+}
+
+.picker-btn-wrap {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 40rpx 30rpx 0 30rpx;
+  z-index: 999;
+}
+
+.picker-btn-wrap .btn-select {
+  height: 60rpx;
+  background: #e6454a;
+  color: #FFF;
+  line-height: 60rpx;
+  font-size: 32rpx;
+  padding: 0 30rpx;
+  border-radius: 4px;
+}
+.picker .item-day{
+  padding-top: 5px;
+}
+.picker .item-day text{
+  display: block;
+}
+.picker .item-day .date{
+  font-size: 28rpx;
+  color: #999;
+}
+.picker .item-time{
+  line-height: 50px;
+}

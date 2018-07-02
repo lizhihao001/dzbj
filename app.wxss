@@ -1,0 +1,62 @@
+/**app.wxss**/
+view{
+  color: #101010;
+  font-size: 32rpx;
+}
+button{
+  font-size: 32rpx;
+}
+button::after{
+  border: none;
+}
+text{
+  font-size:32rpx;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.thinline{
+  position: relative;
+}
+.thinline::after{
+  position: absolute;
+  left:0;
+  right:0;
+  height: 1px;
+  content: "";
+  transform: scaleY(.5);
+  background-color: #EDEDED;
+}
+.thinline.top::after{
+  top:0;
+}
+.thinline.bottom::after{
+  bottom:0;
+}
+.thinline.l80::after{
+  left:80rpx;
+}
+.cgray{
+  color: #666;
+}
+.clightgray{
+  color: #999;
+}
+.prelative{
+  position: relative;
+}
+.mask{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  left: 0;
+  top:0;
+  z-index: 99;
+  background: rgba(0,0,0,.6)
+}

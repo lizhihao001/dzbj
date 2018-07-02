@@ -1,0 +1,87 @@
+<!--pages/book/book.wxml-->
+<view class='topbox thinline top'>
+  <view class='icon-user'>
+    <image src='../../images/user.png'></image>
+  </view>
+  <view class='navlist'>
+    <scroll-view scroll-x="true" class='scroll-wrap' scroll-into-view='{{actScrollId}}' scroll-with-animation='true'>
+      <view class="item {{actIndex == index ? 'on' : ''}}" wx:for='{{carData}}' bindtap='switchCar' data-index='{{index}}' wx:key='' id='{{item.id}}'>{{item.name}}</view>
+    </scroll-view>
+  </view>
+</view>
+<swiper class='car-box' current='{{actIndex}}' bindchange='switchSwipe'>
+  <swiper-item class="swipe-item" wx:for='{{carData}}' wx:key=''>
+    <image src='{{item.img}}'></image>
+    <view class='box-info'>
+      <view class='item' wx:for='{{item.spec}}' wx:for-index='idx' wx:for-item='items' wx:key=''>
+        <text class='t1'>{{items.spec}}</text>
+        <text class='t2'>{{items.info}}</text>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>
+<view class='book-box'>
+  <view class='row thinline bottom l80' bindtap='showTimePicker'>
+    <image class='icon-clock' src='../../images/clock.png'></image>
+    <text class='tip-book-date'>用车时间</text>
+    <text class='txt-book-date'>{{tipBookDate}}</text>
+    <image class='icon-right' src='../../images/arrow-right.png'></image>
+  </view>
+  <view class='row thinline bottom l80'  data-type='1' bindtap='selectAddress'>
+    <image class='icon-add' src='../../images/icon-add-start.png'></image>
+    <button class='btn-add'>{{addFrom.address}}</button>
+    <image class='icon-right' src='../../images/arrow-right.png'></image>
+  </view>
+  <view class='row thinline bottom l80' bindtap='selectAddress' data-type='2'>
+    <image class='icon-add' src='../../images/icon-add-end.png'></image>
+    <button class='btn-add'>{{addTo.address}}</button>
+    <image class='icon-right' src='../../images/arrow-right.png'></image>
+  </view>
+  <view class='row'>
+    <image class='icon-add' src='../../images/people.png'></image>
+    <text>人工搬运(1人/100元/1小时)</text>
+    <image class='icon-right' src='../images/arrow-right.png'></image>
+    <view class='numbox'>
+      <view class='btn-handle-qty' bindtap='selectManPower' data-type = '1'>
+        <image src='../../images/minus.png' class='icon-handle-qty'></image>
+      </view>
+      <text class='qty'>{{qty}}人</text>
+      <view class='btn-handle-qty' bindtap='selectManPower' data-type = '2'>
+        <image src='../../images/add.png' class='icon-handle-qty'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='footer'>
+  <view class='priceinfo'>
+    <text class='tip-txt'>¥</text>
+    <text class='tip-price'>500</text>
+    <text class='tip-txt'>元</text>
+    <text class='tip-intro'>费用详情</text>
+    <image class='icon-right' src='../../images/arrow-right.png'></image>
+  </view>
+  <button type='button' class='btn-submit'>预约</button>
+</view>
+<view class="picker {{isShowTimePicker ? 'show' : 'hide'}}">
+  <view class='prelative'>
+    <view class='picker-btn-wrap'>
+      <view class='btn-select' bindtap='hideTimePicker' data-type='1'>取消</view>
+      <view class='btn-select' bindtap='hideTimePicker' data-type='2'>确定</view>
+    </view>
+    <picker-view indicator-style="height: 50px;" class='picker-view'  bindchange='changeDate'>
+      <picker-view-column>
+        <view class='item-day' wx:for='{{arrDate}}' wx:key=''>
+          <text class='week'>{{item.week}}</text>  
+          <text class='date'>{{item.day}}</text>  
+        </view> 
+      </picker-view-column>
+      <picker-view-column>
+        <view class='item-time' wx:for='{{arrHour}}' wx:key=''>{{item}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view class='item-time' wx:for='{{arrMin}}' wx:key=''>{{item}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<view class='mask' wx:if='{{isShowTimePicker}}' bindtap='hideTimePicker'></view>
