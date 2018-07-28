@@ -108,11 +108,8 @@ Page({
     addType:1,
     dis:0,
     qty:0,
-    totalPrcie:0
-
-
-
-    
+    totalPrcie:0,
+    showFee:false
   },
   //点击车型按钮
   bindOpenSetting(e){
@@ -152,6 +149,14 @@ Page({
         isShowTimePicker: false
       })
     }
+    this.setData({
+      showFee:false
+    })
+  },
+  showFeeDetail(){
+    this.setData({
+      showFee:true
+    })
   },
   selectBookTime() {
 
@@ -302,6 +307,7 @@ Page({
     }
     return min;
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

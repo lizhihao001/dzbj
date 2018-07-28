@@ -27,7 +27,7 @@
     <text class='txt-book-date'>{{tipBookDate}}</text>
     <image class='icon-right' src='../../images/arrow-right.png'></image>
   </view>
-  <view class='row thinline bottom l80'  data-type='1' bindtap='selectAddress'>
+  <view class='row thinline bottom l80' data-type='1' bindtap='selectAddress'>
     <image class='icon-add' src='../../images/icon-add-start.png'></image>
     <button class='btn-add'>{{addFrom.address}}</button>
     <image class='icon-right' src='../../images/arrow-right.png'></image>
@@ -42,18 +42,18 @@
     <text>人工搬运(1人/100元/1小时)</text>
     <image class='icon-right' src='../images/arrow-right.png'></image>
     <view class='numbox'>
-      <view class='btn-handle-qty' bindtap='selectManPower' data-type = '1'>
+      <view class='btn-handle-qty' bindtap='selectManPower' data-type='1'>
         <image src='../../images/minus.png' class='icon-handle-qty'></image>
       </view>
       <text class='qty'>{{qty}}人</text>
-      <view class='btn-handle-qty' bindtap='selectManPower' data-type = '2'>
+      <view class='btn-handle-qty' bindtap='selectManPower' data-type='2'>
         <image src='../../images/add.png' class='icon-handle-qty'></image>
       </view>
     </view>
   </view>
 </view>
 <view class='footer'>
-  <view class='priceinfo'>
+  <view class='priceinfo' bindtap='showFeeDetail'>
     <text class='tip-txt'>¥</text>
     <text class='tip-price'>500</text>
     <text class='tip-txt'>元</text>
@@ -68,12 +68,12 @@
       <view class='btn-select' bindtap='hideTimePicker' data-type='1'>取消</view>
       <view class='btn-select' bindtap='hideTimePicker' data-type='2'>确定</view>
     </view>
-    <picker-view indicator-style="height: 50px;" class='picker-view'  bindchange='changeDate'>
+    <picker-view indicator-style="height: 50px;" class='picker-view' bindchange='changeDate'>
       <picker-view-column>
         <view class='item-day' wx:for='{{arrDate}}' wx:key=''>
-          <text class='week'>{{item.week}}</text>  
-          <text class='date'>{{item.day}}</text>  
-        </view> 
+          <text class='week'>{{item.week}}</text>
+          <text class='date'>{{item.day}}</text>
+        </view>
       </picker-view-column>
       <picker-view-column>
         <view class='item-time' wx:for='{{arrHour}}' wx:key=''>{{item}}</view>
@@ -84,4 +84,31 @@
     </picker-view>
   </view>
 </view>
+<view class="fee-box {{showFee ? 'show' : 'hide'}}">
+  <view class='tc'>
+    <text class='f14 cblack padr5'>约</text>
+    <text class='total-price'>500</text>
+    <text class='f14 cblack padl5'>元</text>
+  </view>
+  <view class='row line'>
+    
+  </view>
+  <view class='row'>
+  <text class='clightgray f14'>预计行驶</text>
+  <text class='cblack f14'>10</text>
+  </view>
+  <view class='row'>
+    <text class='clightgray f14'>起步价(含5公里)</text>
+    <text class='cblack f14'>28</text>
+    </view>
+  <view class='row'>
+    <text class='clightgray f14'>超里程费(超出1公里)</text>
+    <text class='cblack f14'>50</text>
+  </view>
+  <view class='row'>
+    <text class='clightgray f14'>人力费(2人)</text>
+    <text class='clbak f14'>200</text>
+  </view>
+</view>
 <view class='mask' wx:if='{{isShowTimePicker}}' bindtap='hideTimePicker'></view>
+<view class='mask' wx:if='{{showFee}}' bindtap='hideTimePicker'></view>

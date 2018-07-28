@@ -307,3 +307,32 @@ view {
 .picker .item-time{
   line-height: 50px;
 }
+.fee-box {
+  position: fixed;
+  width: 100%;
+  height: 400rpx;
+  left: 0;
+  z-index: 9999;
+  bottom: -400rpx;
+  background: #fff;
+  transition:bottom 300ms;
+  padding: 30rpx;
+}
+.fee-box.show{
+  bottom: 0;
+}
+.fee-box .total-price{
+  font-size: 60rpx;
+  color: #e6454a;
+  text-align: center; 
+}
+.fee-box .row{
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fee-box .row.line{
+  height: 1px;
+  margin-bottom: 40rpx;
+}

@@ -42,6 +42,9 @@ text{
 .thinline.l80::after{
   left:80rpx;
 }
+.cblack{
+  color: #323232;
+}
 .cgray{
   color: #666;
 }
@@ -59,4 +62,19 @@ text{
   top:0;
   z-index: 99;
   background: rgba(0,0,0,.6)
+}
+.tc{
+  text-align: center;
+}
+.padl5{
+  padding-left: 10rpx;
+}
+.padr5{
+  padding-right: 10rpx;
+}
+.f12{
+  font-size: 24rpx;
+}
+.f14{
+  font-size:28rpx;
 }
