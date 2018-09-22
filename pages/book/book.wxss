@@ -40,7 +40,6 @@ view {
   height: 50rpx;
   margin: 0 auto;
 }
-
 .topbox .navlist {
   height: 100rpx;
   margin-left: 100rpx;
@@ -218,14 +217,16 @@ view {
   margin-bottom: 10rpx;
   position: relative;
 }
-.footer .priceinfo .icon-right{
+
+.footer .priceinfo .icon-right {
   float: right;
   position: absolute;
   right: 0;
   width: 40rpx;
   height: 40rpx;
-  top:24rpx;
+  top: 24rpx;
 }
+
 .footer .priceinfo .tip-price {
   font-size: 60rpx;
   color: #e6454a;
@@ -241,7 +242,7 @@ view {
   font-size: 24rpx;
   color: #999;
   margin-right: 50rpx;
-  float:right;
+  float: right;
   margin-top: 26rpx;
 }
 
@@ -260,14 +261,17 @@ view {
   z-index: 9999;
   bottom: -400rpx;
   background: #fff;
-  transition:bottom 300ms;
+  transition: bottom 300ms;
 }
-.picker.show{
+
+.picker.show {
   bottom: 0;
 }
-.picker.hide{
+
+.picker.hide {
   bottom: -400rpx;
 }
+
 .picker-view {
   width: 100%;
   height: 400rpx;
@@ -288,51 +292,85 @@ view {
 .picker-btn-wrap .btn-select {
   height: 60rpx;
   background: #e6454a;
-  color: #FFF;
+  color: #fff;
   line-height: 60rpx;
   font-size: 32rpx;
   padding: 0 30rpx;
   border-radius: 4px;
 }
-.picker .item-day{
+
+.picker .item-day {
   padding-top: 5px;
 }
-.picker .item-day text{
+
+.picker .item-day text {
   display: block;
 }
-.picker .item-day .date{
+
+.picker .item-day .date {
   font-size: 28rpx;
   color: #999;
 }
-.picker .item-time{
+
+.picker .item-time {
   line-height: 50px;
 }
+
 .fee-box {
   position: fixed;
   width: 100%;
-  height: 400rpx;
+  height: 440rpx;
   left: 0;
   z-index: 9999;
-  bottom: -400rpx;
+  bottom: -440rpx;
   background: #fff;
-  transition:bottom 300ms;
+  transition: bottom 300ms;
   padding: 30rpx;
 }
-.fee-box.show{
+
+.fee-box.show {
   bottom: 0;
 }
-.fee-box .total-price{
+
+.fee-box .total-price {
   font-size: 60rpx;
   color: #e6454a;
-  text-align: center; 
+  text-align: center;
 }
-.fee-box .row{
+
+.fee-box .row {
   margin-bottom: 20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.fee-box .row.line{
+
+.fee-box .row.line-box {
   height: 1px;
   margin-bottom: 40rpx;
+  margin-top: 20rpx;
+}
+
+.fee-box .row.line-box .line {
+  height: 1px;
+  background: #ededed;
+  width: 260rpx;
+  transform: scaleY(0.5);
+}
+
+.side-nav {
+  position: fixed;
+  height: 100%;
+  width: 200rpx;
+  left: 0;
+  top:0;
+  z-index: 9999;
+  left: -200rpx;
+  background: #fff;
+  transition: bottom 300ms;
+  padding: 30rpx;
+}
+
+.side-nav.show {
+  left: 0;
 }

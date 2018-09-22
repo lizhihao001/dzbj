@@ -1,2 +1,28 @@
 <!--pages/order/user.wxml-->
-<text>pages/order/user.wxml</text>
+<view class='header'>
+  <image src='{{userHeader}}' class='user-header'></image>
+  <button class='user-name' open-type='getUserInfo' bindgetuserinfo='get_user_info'>{{userName}}</button>
+</view>
+<view class='navlist'>
+  <view class='row thinline bottom l30'>
+    <view class='item'>
+      <image src='../../images/book.png' class='icon'></image>
+      <text class='f14 cblack'>我的订单</text>
+    </view>
+    <image src='../../images/arrow-right.png' class='icon'></image>
+  </view>
+  <view class='row thinline bottom l30'>
+    <view class='item'>
+      <image src='../../images/book.png' class='icon'></image>
+      <text class='f14 cblack'>收费标准</text>
+    </view>
+    <image src='../../images/arrow-right.png' class='icon'></image>
+  </view>
+    <view class='row thinline bottom'>
+    <view class='item'>
+      <image src='../../images/book.png' class='icon'></image>
+      <text class='f14 cblack'>联系客服</text>
+    </view>
+    <image src='../../images/arrow-right.png' class='icon'></image>
+  </view>
+</view>

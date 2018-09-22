@@ -1,7 +1,7 @@
 <!--pages/book/book.wxml-->
 <view class='topbox thinline top'>
-  <view class='icon-user'>
-    <image src='../../images/user.png'></image>
+  <view class='icon-user' bindtap='to_user'>
+    <image src='../../images/user.png'></image> 
   </view>
   <view class='navlist'>
     <scroll-view scroll-x="true" class='scroll-wrap' scroll-into-view='{{actScrollId}}' scroll-with-animation='true'>
@@ -55,7 +55,7 @@
 <view class='footer'>
   <view class='priceinfo' bindtap='showFeeDetail'>
     <text class='tip-txt'>¥</text>
-    <text class='tip-price'>500</text>
+    <text class='tip-price'>{{totalPrcie}}</text>
     <text class='tip-txt'>元</text>
     <text class='tip-intro'>费用详情</text>
     <image class='icon-right' src='../../images/arrow-right.png'></image>
@@ -87,15 +87,17 @@
 <view class="fee-box {{showFee ? 'show' : 'hide'}}">
   <view class='tc'>
     <text class='f14 cblack padr5'>约</text>
-    <text class='total-price'>500</text>
+    <text class='total-price'>{{totalPrcie}}</text>
     <text class='f14 cblack padl5'>元</text>
   </view>
-  <view class='row line'>
-    
+  <view class='row line-box'>
+    <view class='line'></view>
+    <text class='f12 clightgray'>费用明细</text>
+    <view class='line'></view>    
   </view>
   <view class='row'>
   <text class='clightgray f14'>预计行驶</text>
-  <text class='cblack f14'>10</text>
+  <text class='cblack f14'>{{dis}}公里</text>
   </view>
   <view class='row'>
     <text class='clightgray f14'>起步价(含5公里)</text>
@@ -106,7 +108,7 @@
     <text class='cblack f14'>50</text>
   </view>
   <view class='row'>
-    <text class='clightgray f14'>人力费(2人)</text>
+    <text class='clightgray f14'>人力费({{qty}}人)</text>
     <text class='clbak f14'>200</text>
   </view>
 </view>

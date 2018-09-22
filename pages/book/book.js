@@ -3,7 +3,6 @@ const util = require('../../utils/util.js');
 const nowDate = require('../../utils/date.js');
 const pickerData = require('../../utils/week.js');
 const formatLocation = util.formatLocation;
-console.log();
 Page({
 
   /**
@@ -109,7 +108,13 @@ Page({
     dis:0,
     qty:0,
     totalPrcie:0,
-    showFee:false
+    showFee:false,
+    showSideNav:false
+  },
+  to_user(){
+      wx.navigateTo({
+        url: '../user/user',
+      })
   },
   //点击车型按钮
   bindOpenSetting(e){
@@ -307,7 +312,11 @@ Page({
     }
     return min;
   },
-
+  toUser(){
+    wx.navigateTo({
+      url: '../user/user',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -39,6 +39,9 @@ text{
 .thinline.bottom::after{
   bottom:0;
 }
+.thinline.l30::after{
+  left:30rpx;
+}
 .thinline.l80::after{
   left:80rpx;
 }
