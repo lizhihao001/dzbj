@@ -266,6 +266,7 @@ Page({
       }
     })
   },
+  //计算价格
   getPrice() {
     let data = this.data.carData[this.data.actIndex];
     console.log(JSON.stringify(data))
@@ -289,6 +290,18 @@ Page({
       exceedDis: dis,
       totalPrice: totalPrcie
     })
+  },
+  //预约
+  toBook() {
+    let params = {
+      manQty: this.data.qty,
+      addFrom: this.data.addFrom.address,
+      addTo: this.data.addTo.address,
+      carId:this.data.carData[this.data.actIndex].id,
+      dis:this.data.dis,
+      bookTime:this.data.bookDate
+    }
+    console.log(JSON.stringify(params))
   },
   /**
    * 生命周期函数--监听页面加载

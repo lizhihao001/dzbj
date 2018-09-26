@@ -68,7 +68,7 @@
     <text class='tip-intro'>费用详情</text>
     <image class='icon-right' src='../../images/arrow-right.png'></image>
   </view>
-  <button type='button' class='btn-submit'>预约</button>
+  <button type='button' class='btn-submit' bindtap='toBook'>预约</button>
 </view>
 <view class="picker {{isShowTimePicker ? 'show' : 'hide'}}">
   <view class='prelative'>
