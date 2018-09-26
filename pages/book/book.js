@@ -3,147 +3,76 @@ const util = require('../../utils/util.js');
 const nowDate = require('../../utils/date.js');
 const pickerData = require('../../utils/week.js');
 const formatLocation = util.formatLocation;
+const func = require('../../common.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    carData: [{
-      id: 'car0',
-      name: '面包车',
-      img: '../../images/1.jpg',
-      spec: [{
-        spec: '30元(5公里)',
-        info: '起步价'
-      }, {
-        spec: '3.0元/公里',
-        info: '超里程费'
-      }, {
-        spec: '1.7*1.1*1m',
-        info: '长*宽*高'
-      }]
-    },
-    {
-      id: 'car1',
-      name: '中型面包',
-      img: '../../images/2.jpg',
-      spec: [{
-        spec: '55元(5公里)',
-        info: '起步价'
-      }, {
-        spec: '4.0元/公里',
-        info: '超里程费'
-      }, {
-        spec: '2.6*1.6*1.5m',
-        info: '长*宽*高'
-      }]
-    },
-    {
-      id: 'car2',
-      name: '平板车',
-      img: '../../images/3.jpg',
-      spec: [{
-        spec: '50元(5公里)',
-        info: '起步价'
-      }, {
-        spec: '4.0元/公里',
-        info: '超里程费'
-      }, {
-        spec: '2*1.5*1.8m',
-        info: '长*宽*高'
-      }]
-    },
-    {
-      id: 'car3',
-      name: '小型箱货',
-      img: '../../images/4.jpg',
-      spec: [{
-        spec: '65元(5公里)',
-        info: '起步价'
-      }, {
-        spec: '4.0元/公里',
-        info: '超里程费'
-      }, {
-        spec: '2*1.6*1.5m',
-        info: '长*宽*高'
-      }]
-    },
-    {
-      id: 'car4',
-      name: '大型箱货',
-      img: '../../images/5.jpg',
-      spec: [{
-        spec: '99元(5公里)',
-        info: '起步价'
-      }, {
-        spec: '5.0元/公里',
-        info: '超里程费'
-      }, {
-        spec: '4.2*2*1.8m',
-        info: '长*宽*高'
-      }]
-    }
-    ],
+    carData: [],
     actIndex: 0,
     actScrollId: 'car0',
     isShowTimePicker: false,
     arrDate: [],
     arrHour: [],
     arrMin: ['00', '15', '30', '45'],
-    bookDate: nowDate(2).fullDate + ' ' + nowDate(2).nowHour +':'+nowDate(2).nowMin+':00',
+    bookDate: nowDate(2).fullDate + ' ' + nowDate(2).nowHour + ':' + nowDate(2).nowMin + ':00',
     strBookDate: '',
     tipBookDate: '现在',
-    addFrom:{
-      address:'请选择起始地',
-      lat:'',
-      lng:''
+    addFrom: {
+      address: '请选择起始地',
+      lat: '',
+      lng: ''
     },
     addTo: {
       address: '请选择目的地',
       lat: '',
       lng: ''
     },
-    addType:1,
-    dis:0,
-    qty:0,
-    totalPrcie:0,
-    showFee:false,
-    showSideNav:false
+    addType: 1,
+    dis: 0,//实际里程
+    qty: 0,
+    totalPrice: 0,
+    showFee: false,
+    showSideNav: false,
+    iniPrice: 0,
+    exceedPrice: 0,//超里程定价
+    iniDis: 0,//起步里程,
+    exceedPriceTotal: 0, //超里程费用(计算后)
+    exceedDis: 0
   },
-  to_user(){
-      wx.navigateTo({
-        url: '../user/user',
-      })
+  to_user() {
+    wx.navigateTo({
+      url: '../user/user',
+    })
   },
   //点击车型按钮
-  bindOpenSetting(e){
-    console.log(JSON.stringify(e))
-  },
   switchCar(e) {
     let index = e.target.dataset.index;
     console.log(index)
     this.setData({
       actIndex: index
     })
+    this.getPrice()
   },
   //切换swiper
   switchSwipe(e) {
-    console.log(JSON.stringify(e))
     let index = e.detail.current;
     this.setData({
       actIndex: index,
       actScrollId: 'car' + index
     })
+    this.getPrice()
   },
   showTimePicker() {
     this.setData({
-      isShowTimePicker: true, 
+      isShowTimePicker: true,
     })
   },
   hideTimePicker(e) {
     console.log(this.data.bookDate)
-    if(e.target.dataset.type == 2){
+    if (e.target.dataset.type == 2) {
       this.setData({
         isShowTimePicker: false,
         tipBookDate: this.data.strBookDate ? this.data.strBookDate : '现在'
@@ -155,12 +84,12 @@ Page({
       })
     }
     this.setData({
-      showFee:false
+      showFee: false
     })
   },
-  showFeeDetail(){
+  showFeeDetail() {
     this.setData({
-      showFee:true
+      showFee: true
     })
   },
   selectBookTime() {
@@ -170,11 +99,11 @@ Page({
     let self = this;
     let type = e.currentTarget.dataset.type;
     wx.chooseLocation({
-      success: function(res) {
+      success: function (res) {
         if (type == 1) {
           self.setData({
-            addFrom:{
-              address:res.name,
+            addFrom: {
+              address: res.name,
               lat: res.latitude,
               lng: res.longitude
             }
@@ -192,9 +121,9 @@ Page({
           self.calDis()
         }
       },
-      fail: function(res){
+      fail: function (res) {
         console.log('fail===' + JSON.stringify(res))
-        if (res.errMsg == 'chooseLocation:fail auth deny'){
+        if (res.errMsg == 'chooseLocation:fail auth deny') {
           wx.showModal({
             title: '',
             content: '需要您的位置授权才能选择地址',
@@ -222,47 +151,49 @@ Page({
       },
       method: 'GET',
       success: function (data) {
-        let distance = data.data.result.routes[0].distance < 1000 ? data.data.result.routes[0].distance + '米' : (data.data.result.routes[0].distance/1000).toFixed(1) + '公里';
+        let distance = data.data.result.routes[0].distance < 1000 ? data.data.result.routes[0].distance + '米' : (data.data.result.routes[0].distance / 1000).toFixed(1) + '公里';
         console.log('distance==' + distance)
-
+        let dis = ((data.data.result.routes[0].distance) / 1000).toFixed(1)
         self.setData({
-          dis: ((data.data.result.routes[0].distance) / 1000).toFixed(1)
+          dis: dis
         });
-        wx.hideLoading()
+        self.getPrice();
+        wx.hideLoading();
       },
       fail: function (data) {
         wx.hideLoading()
       }
     })
   },
-  selectManPower(e){
+  selectManPower(e) {
     let type = e.currentTarget.dataset.type;
-    if(type == 1){
-      if(this.data.qty <= 0){
+    if (type == 1) {
+      if (this.data.qty <= 0) {
         this.setData({
-          qty:0
+          qty: 0
         })
-      }else{
-        this.data.qty --;
+      } else {
+        this.data.qty--;
         this.setData({
-          qty:this.data.qty
+          qty: this.data.qty
         })
       }
-    }else{
+    } else {
       this.data.qty++;
       this.setData({
-        qty:this.data.qty
+        qty: this.data.qty
       })
     }
+    this.getPrice()
   },
   changeDate(e) {
     let selectDate = this.data.arrDate[e.detail.value[0]].fulldate;
-    let selectDay = this.data.arrDate[e.detail.value[0]].day  
+    let selectDay = this.data.arrDate[e.detail.value[0]].day
     let strDay = selectDate.split('-');
     this.setData({
       arrHour: this.setHour(strDay[1], strDay[2])
     })
-    
+
     let selectHour = this.data.arrHour[e.detail.value[1]];
     this.setData({
       arrMin: this.setMin(strDay[1], strDay[2], selectHour)
@@ -312,15 +243,58 @@ Page({
     }
     return min;
   },
-  toUser(){
+  toUser() {
     wx.navigateTo({
       url: '../user/user',
+    })
+  },
+  //获取列表
+  getCarList() {
+    let self = this;
+    func.getData({
+      path: 'admin/carlist',
+      fnsuc(res) {
+        if (res.status == 100) {
+          self.setData({
+            carData: res.data,
+            iniPrice: res.data[0].ini_price,
+            iniDis: res.data[0].ini_dis,
+            exceedPrice: res.data[0].exceed_price,
+            totalPrice: res.data[0].ini_price
+          })
+        }
+      }
+    })
+  },
+  getPrice() {
+    let data = this.data.carData[this.data.actIndex];
+    console.log(JSON.stringify(data))
+    //超出的里程
+    let dis = (this.data.dis - data.ini_dis) > 0 ? (this.data.dis - data.ini_dis) : 0;
+    //超里程费用
+    let exceedPrice = dis * data.exceed_price;
+    //人力费用
+    let manPrice = this.data.qty * 100
+    //总价
+    console.log('起步价:' + data.ini_price)
+    console.log('超里程:' + exceedPrice)
+    console.log('人力:' + manPrice)
+    let totalPrcie = data.ini_price + parseFloat(exceedPrice) + parseInt(manPrice)
+    console.log('总价:' + totalPrcie)
+    this.setData({
+      iniPrice: data.ini_price,
+      iniDis: data.ini_dis,
+      exceedPrice: data.exceed_price,
+      exceedPriceTotal: exceedPrice,
+      exceedDis: dis,
+      totalPrice: totalPrcie
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getCarList()
     this.setData({
       arrDate: pickerData(),
       arrHour: this.setHour(nowDate(2).nowMonth, nowDate(2).nowDay),

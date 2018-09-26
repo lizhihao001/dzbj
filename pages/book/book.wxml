@@ -11,11 +11,19 @@
 </view>
 <swiper class='car-box' current='{{actIndex}}' bindchange='switchSwipe'>
   <swiper-item class="swipe-item" wx:for='{{carData}}' wx:key=''>
-    <image src='{{item.img}}'></image>
+    <image src=''></image>
     <view class='box-info'>
-      <view class='item' wx:for='{{item.spec}}' wx:for-index='idx' wx:for-item='items' wx:key=''>
-        <text class='t1'>{{items.spec}}</text>
-        <text class='t2'>{{items.info}}</text>
+      <view class='item'>
+        <text class='t1'>{{item.ini_price}}元({{item.ini_dis}}公里)</text>
+        <text class='t2'>起步价</text>
+      </view>
+       <view class='item'>
+        <text class='t1'>{{item.exceed_price}}元/公里</text>
+        <text class='t2'>超里程费</text>
+      </view>
+       <view class='item'>
+        <text class='t1'>{{item.length}}*{{item.width}}*{{item.height}}m</text>
+        <text class='t2'>长*宽*高</text>
       </view>
     </view>
   </swiper-item>
@@ -55,7 +63,7 @@
 <view class='footer'>
   <view class='priceinfo' bindtap='showFeeDetail'>
     <text class='tip-txt'>¥</text>
-    <text class='tip-price'>{{totalPrcie}}</text>
+    <text class='tip-price'>{{totalPrice}}</text>
     <text class='tip-txt'>元</text>
     <text class='tip-intro'>费用详情</text>
     <image class='icon-right' src='../../images/arrow-right.png'></image>
@@ -87,7 +95,7 @@
 <view class="fee-box {{showFee ? 'show' : 'hide'}}">
   <view class='tc'>
     <text class='f14 cblack padr5'>约</text>
-    <text class='total-price'>{{totalPrcie}}</text>
+    <text class='total-price'>{{totalPrice}}</text>
     <text class='f14 cblack padl5'>元</text>
   </view>
   <view class='row line-box'>
@@ -100,16 +108,16 @@
   <text class='cblack f14'>{{dis}}公里</text>
   </view>
   <view class='row'>
-    <text class='clightgray f14'>起步价(含5公里)</text>
-    <text class='cblack f14'>28</text>
+    <text class='clightgray f14'>起步价(含{{iniDis}}公里)</text>
+    <text class='cblack f14'>{{iniPrice}}</text>
     </view>
   <view class='row'>
-    <text class='clightgray f14'>超里程费(超出1公里)</text>
-    <text class='cblack f14'>50</text>
+    <text class='clightgray f14'>超里程费(超出{{exceedDis}}公里)</text>
+    <text class='cblack f14'>{{exceedPriceTotal}}</text>
   </view>
   <view class='row'>
     <text class='clightgray f14'>人力费({{qty}}人)</text>
-    <text class='clbak f14'>200</text>
+    <text class='clbak f14'>{{qty * 100}}</text>
   </view>
 </view>
 <view class='mask' wx:if='{{isShowTimePicker}}' bindtap='hideTimePicker'></view>
