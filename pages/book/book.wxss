@@ -282,8 +282,6 @@ view {
 .picker-btn-wrap {
   position: fixed;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   background: #fff;
   padding: 40rpx 30rpx 0 30rpx;
   z-index: 999;
@@ -373,4 +371,9 @@ view {
 
 .side-nav.show {
   left: 0;
+}
+.icon-close{
+  width: 40rpx;
+  height: 40rpx;
+  float:right;
 }

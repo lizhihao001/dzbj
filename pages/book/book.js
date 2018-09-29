@@ -71,20 +71,9 @@ Page({
     })
   },
   hideTimePicker(e) {
-    console.log(this.data.bookDate)
-    if (e.target.dataset.type == 2) {
-      this.setData({
-        isShowTimePicker: false,
-        tipBookDate: this.data.strBookDate ? this.data.strBookDate : '现在'
-      })
-    } else {
-      this.data.bookDate = '';
-      this.setData({
-        isShowTimePicker: false
-      })
-    }
     this.setData({
-      showFee: false
+      showFee: false,
+      isShowTimePicker: false
     })
   },
   showFeeDetail() {
@@ -201,7 +190,9 @@ Page({
     let selectMin = this.data.arrMin[e.detail.value[2]];
     this.data.bookDate = selectDate + ' ' + selectHour + ':' + selectMin + ':00';
     this.data.strBookDate = selectDay + ' ' + selectHour + '时' + selectMin + '分';
-
+    this.setData({
+      tipBookDate: this.data.strBookDate ? this.data.strBookDate : '现在'
+    })
   },
   setHour(month, day) {
     const nowDay = nowDate(2).nowDay;
@@ -299,8 +290,33 @@ Page({
       addTo: this.data.addTo.address,
       carId:this.data.carData[this.data.actIndex].id,
       dis:this.data.dis,
-      bookTime:this.data.bookDate
+      bookTime: this.data.bookDate,
+      memo:'备注下订单',
+      phone:'13588882222',
+      price:this.data.totalPrcie
     }
+    if(params.addFrom =='请选择起始地'){
+      wx.showToast({
+        title: '请选择起始地',
+        icon:'none'
+      })
+      return 
+    }
+    if (params.addTo == '请选择目的地') {
+      wx.showToast({
+        title: '请选择目的地',
+        icon: 'none'
+      })
+      return
+    }
+    func.getData({
+      path:'front/ordercreate',
+      type:'POST',
+      data:params,
+      fnsuc(res){
+        console.log(res)
+      }
+    })
     console.log(JSON.stringify(params))
   },
   /**

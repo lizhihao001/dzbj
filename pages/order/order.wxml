@@ -1,0 +1,42 @@
+<!--pages/order/order.wxml-->
+<view class='list'>
+  <view class='item' wx:for="{{orderData}}" wx:key="index">
+    <view class='main thinline bottom'>
+      <view class='row'>
+        <text class='label'>出发地</text>
+        <text class='content'>{{item.add_from}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>目的地</text>
+        <text class='content'>{{item.add_to}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>车型</text>
+        <text class='content'>{{item.car_name}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>预计里程</text>
+        <text class='content'>{{item.dis}}公里</text>
+      </view>
+      <view class='row'>
+        <text class='label'>人力</text>
+        <text class='content'>{{item.man_qty}}人</text>
+      </view>
+      <view class='row'>
+        <text class='label'>预约时间</text>
+        <text class='content'>{{item.book_time}}</text>
+      </view>
+      <view class='row'>
+        <text class='label'>联系电话</text>
+        <text class='content'>{{item.phone}}</text>
+      </view>
+    </view>
+    <view class='footer'>
+      <view class='status'>
+       <text class='f14'>{{item.state == 1 ? '已预约' : '已取消'}}</text>
+       <text class='price'>￥{{item.price}}</text>
+      </view>
+      <button type=' warn ' hidden='{{item.state==2}}' data-id='{{item.order_id}}' bindtap='handleCancleOrder'>取消订单</button>
+    </view>
+  </view>
+</view>

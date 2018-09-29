@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/book/book",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "开始搬家",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   }
 }

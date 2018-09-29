@@ -1,0 +1,61 @@
+/* pages/order/order.wxss */
+page{
+  background: #F7F7F7;
+  
+}
+
+.list{
+  padding: 30rpx;
+}
+.list .main{
+  overflow: hidden;
+  padding-bottom: 40rpx;
+}
+.list .item{
+  box-shadow: 0px 0px 8px  #e7e7e7;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 30rpx;
+  padding:30rpx 0;
+  padding-bottom: 0;
+}
+.list .item .row{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding:0 30rpx;
+}
+.list .item .label{
+  font-size:28rpx;
+  color: #999;
+  width:160rpx;
+}
+.list .item .content{
+  font-size:28rpx;
+  color: #323232;
+  flex:1
+}
+.list .footer{
+  padding:20rpx;
+  display: flex;
+  justify-content:space-between;
+  position: relative;
+  align-items: center;
+}
+
+.list .footer .status .price{
+  color: #e6454a;
+  padding-left:20rpx;
+}
+.list .footer button{
+  margin-left: inherit;
+  margin-right: inherit;
+  width: 200rpx;
+  padding-left:20rpx;
+  padding-right: 20rpx;
+  line-height: 2;
+  font-size: 28rpx;
+  background-color:#fff;
+  border:1px solid #ededed;
+  border-radius: 20px;
+}

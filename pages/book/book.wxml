@@ -73,8 +73,7 @@
 <view class="picker {{isShowTimePicker ? 'show' : 'hide'}}">
   <view class='prelative'>
     <view class='picker-btn-wrap'>
-      <view class='btn-select' bindtap='hideTimePicker' data-type='1'>取消</view>
-      <view class='btn-select' bindtap='hideTimePicker' data-type='2'>确定</view>
+      <image class='icon-close' src='../../images/icon-close.png' bindtap='hideTimePicker'></image>
     </view>
     <picker-view indicator-style="height: 50px;" class='picker-view' bindchange='changeDate'>
       <picker-view-column>

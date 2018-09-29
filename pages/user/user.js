@@ -31,6 +31,11 @@ Page({
       })
     }
   },
+  toOrder(){
+    wx.navigateTo({
+      url: '../order/order',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

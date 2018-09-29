@@ -4,23 +4,23 @@
   <button class='user-name' open-type='getUserInfo' bindgetuserinfo='get_user_info'>{{userName}}</button>
 </view>
 <view class='navlist'>
-  <view class='row thinline bottom l30'>
+  <view class='row thinline bottom l30' bindtap='toOrder'>
     <view class='item'>
-      <image src='../../images/book.png' class='icon'></image>
+      <image src='../../images/icon-order.png' class='icon'></image>
       <text class='f14 cblack'>我的订单</text>
     </view>
     <image src='../../images/arrow-right.png' class='icon'></image>
   </view>
   <view class='row thinline bottom l30'>
     <view class='item'>
-      <image src='../../images/book.png' class='icon'></image>
+      <image src='../../images/icon-doc.png' class='icon'></image>
       <text class='f14 cblack'>收费标准</text>
     </view>
     <image src='../../images/arrow-right.png' class='icon'></image>
   </view>
     <view class='row thinline bottom'>
     <view class='item'>
-      <image src='../../images/book.png' class='icon'></image>
+      <image src='../../images/icon-phone.png' class='icon'></image>
       <text class='f14 cblack'>联系客服</text>
     </view>
     <image src='../../images/arrow-right.png' class='icon'></image>

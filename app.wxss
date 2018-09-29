@@ -51,6 +51,9 @@ text{
 .cgray{
   color: #666;
 }
+.cred{
+  color:#e6454a
+}
 .clightgray{
   color: #999;
 }
