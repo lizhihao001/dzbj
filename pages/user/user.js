@@ -9,6 +9,7 @@ Page({
     userHeader: '../../images/defaut-headr.png'
   },
   get_user_info(e) {
+    console.log(JSON.stringify(e))
     if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
       wx.showModal({
         title: '',
@@ -24,7 +25,7 @@ Page({
         name: e.detail.userInfo.nickName,
         header: e.detail.userInfo.avatarUrl
       }
-      wx.setStorageSync('userData', JSON.stringify(userData));
+      wx.setStorageSync('userData', userData);
       this.setData({
         userName: userData.name,
         userHeader: userData.header
@@ -36,13 +37,15 @@ Page({
       url: '../order/order',
     })
   },
+  wxLogin(){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(wx.getStorageSync('userData'))
     if (wx.getStorageSync('userData')) {
-      var userData = JSON.parse(wx.getStorageSync('userData'))
+      var userData = wx.getStorageSync('userData')
       this.setData({
         userHeader: userData.header,
         userName: userData.name

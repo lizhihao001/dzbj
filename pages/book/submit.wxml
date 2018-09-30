@@ -1,0 +1,21 @@
+<!--pages/book/submit.wxml-->
+<view class='box'>
+  <view class='row thinline bottom'>
+    <text class='lable'>联系人称呼</text>
+    <input class='row-input' placeholder='请输入称呼' bindinput='bindName'></input>
+  </view>
+  <view class='row thinline bottom'>
+    <text class='lable'>联系人手机</text>
+    <input class='row-input' placeholder='请输入手机号码' bindinput='bindPhone'></input>
+  </view>
+  <view class='row a'>
+    <text class='lable'>备注</text>
+    <textarea class='row-input a' placeholder='请填写备注信息(非必填,不超过200字)' maxlength="200" bindinput='bindMemo'></textarea>
+    <view class='num'>
+      <text>{{memoLen}}</text>/<text>200</text>
+    </view>
+  </view>
+</view>
+<view class='btn-wrap'>
+<button type='warn' bindtap='toSubmit'>提交订单</button>
+</view>

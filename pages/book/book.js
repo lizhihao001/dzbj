@@ -293,8 +293,9 @@ Page({
       bookTime: this.data.bookDate,
       memo:'备注下订单',
       phone:'13588882222',
-      price:this.data.totalPrcie
+      price:this.data.totalPrice
     }
+    
     if(params.addFrom =='请选择起始地'){
       wx.showToast({
         title: '请选择起始地',
@@ -309,15 +310,19 @@ Page({
       })
       return
     }
-    func.getData({
-      path:'front/ordercreate',
-      type:'POST',
-      data:params,
-      fnsuc(res){
-        console.log(res)
-      }
+    wx.setStorageSync('bookInfo', params)
+    wx.navigateTo({
+      url: 'submit',
     })
-    console.log(JSON.stringify(params))
+    // func.getData({
+    //   path:'front/ordercreate',
+    //   type:'POST',
+    //   data:params,
+    //   fnsuc(res){
+    //     console.log(res)
+    //   }
+    // })
+  
   },
   /**
    * 生命周期函数--监听页面加载

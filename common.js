@@ -1,5 +1,6 @@
 //url: 'https://www.dzbjapp.com/api/'
-const url = 'http://localhost:9000/api/';
+//const url = 'http://localhost:9000/api/';
+const url = 'https://www.dzbjapp.com/api/';
 const merchantId = 1;
 module.exports = {
   getData(params) {

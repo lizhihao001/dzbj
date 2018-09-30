@@ -2,7 +2,8 @@
   "pages": [
     "pages/book/book",
     "pages/user/user",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/book/submit"
   ],
   "window": {
     "backgroundTextStyle": "light",
