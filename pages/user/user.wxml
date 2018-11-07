@@ -1,8 +1,8 @@
 <!--pages/order/user.wxml-->
-<view class='header'>
+<!-- <view class='header'>
   <image src='{{userHeader}}' class='user-header'></image>
   <button class='user-name' open-type='getUserInfo' bindgetuserinfo='get_user_info'>{{userName}}</button>
-</view>
+</view> -->
 <view class='navlist'>
   <view class='row thinline bottom l30' bindtap='toOrder'>
     <view class='item'>

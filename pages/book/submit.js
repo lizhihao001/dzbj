@@ -26,6 +26,12 @@ Page({
   },
   toSubmit() {
     let self = this;
+    wx.login({
+      success(res) {
+        console.log('code==' + res.code)
+      }
+    })
+    return;
     if (!this.data.name) {
       wx.showToast({
         title: '请输入称呼',

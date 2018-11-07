@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName: '请登录',
+    userName: '点击登录',
     userHeader: '../../images/defaut-headr.png'
   },
   get_user_info(e) {
@@ -30,6 +30,7 @@ Page({
         userName: userData.name,
         userHeader: userData.header
       })
+    
     }
   },
   toOrder(){
