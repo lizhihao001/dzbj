@@ -291,8 +291,6 @@ Page({
       carId:this.data.carData[this.data.actIndex].id,
       dis:this.data.dis,
       bookTime: this.data.bookDate,
-      memo:'备注下订单',
-      phone:'13588882222',
       price:this.data.totalPrice
     }
     
@@ -314,15 +312,6 @@ Page({
     wx.navigateTo({
       url: 'submit',
     })
-    // func.getData({
-    //   path:'front/ordercreate',
-    //   type:'POST',
-    //   data:params,
-    //   fnsuc(res){
-    //     console.log(res)
-    //   }
-    // })
-  
   },
   /**
    * 生命周期函数--监听页面加载

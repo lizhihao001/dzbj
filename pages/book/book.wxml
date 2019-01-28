@@ -94,7 +94,7 @@
 <view class="fee-box {{showFee ? 'show' : 'hide'}}">
   <view class='tc'>
     <text class='f14 cblack padr5'>约</text>
-    <text class='total-price'>{{totalPrice}}</text>
+    <text class='total-price'>{{totalPrice.toFixed(1)}}</text>
     <text class='f14 cblack padl5'>元</text>
   </view>
   <view class='row line-box'>
