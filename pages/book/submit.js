@@ -50,19 +50,22 @@ Page({
         })
         return
       }
+      wx.showLoading({
+        title: '预约中',
+      })
       self.data.params.phone = self.data.phone;
       self.data.params.userName = self.data.name;
       self.data.params.memo = self.data.memo;
       self.data.params.code = result;
       self.data.params.formId = e.detail.formId
-      console.log(JSON.stringify(self.data.params))
-      return;
       func.getData({
         path: 'front/ordercreate',
         type: 'POST',
         data: self.data.params,
         fnsuc(res) {
+          wx.hideLoading()
           if (res.status == 100) {
+            wx.setStorageSync('phone', self.data.phone)
             wx.navigateTo({
               url: '../order/order',
             })

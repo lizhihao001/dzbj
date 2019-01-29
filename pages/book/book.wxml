@@ -11,7 +11,7 @@
 </view>
 <swiper class='car-box' current='{{actIndex}}' bindchange='switchSwipe'>
   <swiper-item class="swipe-item" wx:for='{{carData}}' wx:key=''>
-    <image src=''></image>
+    <image src='{{item.pic_url}}'></image>
     <view class='box-info'>
       <view class='item'>
         <text class='t1'>{{item.ini_price}}元({{item.ini_dis}}公里)</text>

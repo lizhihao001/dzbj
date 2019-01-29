@@ -291,7 +291,8 @@ Page({
       carId:this.data.carData[this.data.actIndex].id,
       dis:this.data.dis,
       bookTime: this.data.bookDate,
-      price:this.data.totalPrice
+      price:this.data.totalPrice,
+      carName: this.data.carData[this.data.actIndex].name,
     }
     
     if(params.addFrom =='请选择起始地'){

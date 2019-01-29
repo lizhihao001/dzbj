@@ -34,6 +34,13 @@ Page({
     }
   },
   toOrder(){
+    if(!wx.getStorageSync('phone')){
+      wx.showToast({
+        title: '您未下过订单',
+        icon:'none'
+      })
+      return;
+    }
     wx.navigateTo({
       url: '../order/order',
     })

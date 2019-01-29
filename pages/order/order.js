@@ -16,6 +16,9 @@ Page({
     let self = this;
     func.getData({
       path: 'front/orderlist',
+      data:{
+        phone:wx.getStorageSync('phone')
+      },
       fnsuc(res) {
         self.setData({
           orderData: res.data
